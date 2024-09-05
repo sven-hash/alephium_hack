@@ -1,0 +1,82 @@
+{
+  "version": "v3.6.0",
+  "name": "Donations",
+  "bytecode": "0002404e407001030203004021d3c902f3d016010c330c7bb417021602d1a2140a5f5f6d61705f5f305f5f16004744b10c0d0d140a5f5f6d61705f5f305f5f16004744cb010116012ad20101051602160016016001000101010bd353da73700c0d0d140a5f5f6d61705f5f305f5f16004744cb010102",
+  "codeHash": "143f3864000af508eb6d1154fe20d2e7212426d49c4cfefa95cbcaf0648251e2",
+  "fieldsSig": {
+    "names": [],
+    "types": [],
+    "isMutable": []
+  },
+  "eventsSig": [
+    {
+      "name": "Donation",
+      "fieldNames": [
+        "donor",
+        "recipient",
+        "amount"
+      ],
+      "fieldTypes": [
+        "Address",
+        "Address",
+        "U256"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "depositToUser",
+      "paramNames": [
+        "recipient",
+        "amount"
+      ],
+      "paramTypes": [
+        "Address",
+        "U256"
+      ],
+      "paramIsMutable": [
+        false,
+        false
+      ],
+      "returnTypes": []
+    },
+    {
+      "name": "getDonorTotal",
+      "paramNames": [
+        "donor"
+      ],
+      "paramTypes": [
+        "Address"
+      ],
+      "paramIsMutable": [
+        false
+      ],
+      "returnTypes": [
+        "U256"
+      ]
+    }
+  ],
+  "constants": [],
+  "enums": [
+    {
+      "name": "ErrorCodes",
+      "fields": [
+        {
+          "name": "InsufficientAmount",
+          "value": {
+            "type": "U256",
+            "value": "0"
+          }
+        }
+      ]
+    }
+  ],
+  "mapsSig": {
+    "names": [
+      "donors"
+    ],
+    "types": [
+      "Map[Address,U256]"
+    ]
+  }
+}

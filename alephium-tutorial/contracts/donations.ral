@@ -1,0 +1,28 @@
+Contract Donations() {
+
+    // Mapping of donors to their total donations
+    mapping[Address, U256] donors
+  
+    // Event emitted when a donation is made
+    event Donation(donor: Address, recipient: Address, amount: U256)
+
+    // Error codes to supply when there is a problem with donations
+    enum ErrorCodes {
+      InsufficientAmount = 0
+    }
+  
+    // Function to deposit ethers to a specific user address
+    @using(preapprovedAssets = true, checkExternalCaller = false)
+    pub fn depositToUser(recipient: Address, amount: U256) -> () {
+      assert!(amount > 0, ErrorCodes.InsufficientAmount)
+      let caller = callerAddress!()
+  
+      donors.insert!(caller, recipient, donors[recipient] + amount)
+      emit Donation(caller, recipient, amount)
+    }
+  
+    // Function to get a donor's total donations
+    pub fn getDonorTotal(donor: Address) -> U256 {
+      return donors[donor]
+    }
+  }
